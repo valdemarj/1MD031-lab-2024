@@ -3,8 +3,21 @@
 #headerBlock {
     margin: 15px;
     padding: 20px;
+    height: 360px;
+    overflow: hidden;
+    position: relative;
 }
 
+#headerBlock h1 {
+    position: absolute;
+    bottom: 5px;
+    left: 40px;
+    border: 4px double black;
+}
+
+#headerImage {
+    opacity: 0.7;
+}
 
 body {
     font-family: "Work Sans", sans-serif;
