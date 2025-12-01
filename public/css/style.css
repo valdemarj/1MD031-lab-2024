@@ -1,7 +1,7 @@
 @import 'https://fonts.googleapis.com/css?family=Pacifico|Dosis';
 
 #headerBlock {
-    margin: 15px;
+    margin: 0px;
     padding: 20px;
     height: 360px;
     overflow: hidden;
@@ -45,20 +45,26 @@ button:hover {
 
 section {
     margin: 15px;
-    padding: 20px;
+    padding: 25px;
 }
 
-section > div {
-    background-color: white;
-    padding: 10px;
-    border: 8px double black;
-    width: 500px;
-    height: 500px;
-    text-align: center;
-}
+
 
 .allergies {
     font-weight: bold;
     text-align: left;
 }
 
+.wrapper {
+    display: grid;
+    grid-gap: 25px;
+    grid-template-columns: 350px 350px 350px;
+    grid-template-columns: 3;
+}
+
+.wrapper > div {
+    background-color: white;
+    padding: 10px;
+    border: 8px double black;
+    text-align: center;
+}
