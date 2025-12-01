@@ -3,67 +3,50 @@
    <head>
        <title>Bibblanburgers</title>
        <meta charset="utf-8"/>
+       <link rel="stylesheet" type="text/css" href="css/style.css">
    </head>
    <body>
-        <header>
+        <header id="headerBlock">
             <h1>
-            Välkommen till Bibblanburgers!
-            </h1>
-
+            Welcome to McRawChickenBurger Online!
+            </h1> <br>
+            <img src="https://t3.ftcdn.net/jpg/06/25/40/10/360_F_625401006_uFbHxoXBXwBD9SN0T11jKXtYSWmYpVH0.jpg" alt="Header" title="headerimage"> </img>
         </header>
-        
-        <nav>
-            <h2>
-                Click one of these links to other pages maybe
-            </h2>
-        </nav>
 
         <main>
-            <h2>Select a burger</h2>
-            This is where you select a burger
-            <section>
-                <div>
-                    <div style="display: inline-block">
-                        <h3>The McRawChicken burger</h3>
-                        <div><img src="public/img/McRawChicken.png" alt="Chicken" title="McRawChicken"></div>
-                        <dt>Allergies</dt>
-                        <dd>
-                            <ul>
-                                <li>Chicken</li>
-                                <li>Raw</li>
-                                <li>Burger</li>
-                            </ul>
-                        </dd>
-                    </div>
-                    <div style="display: inline-block">
-                        <h3>The McRawChicken burger 2</h3>
-                        <div><img src="public/img/McRawChicken.png" alt="Chicken" title="McRawChicken"></div>
-                        <dt>Allergies</dt>
-                        <dd>
-                            <ul>
-                                <li>Chicken 2</li>
-                                <li>Raw 2</li>
-                                <li>Burger 2</li>
-                            </ul>
-                        </dd>
-                    </div>
-                    <div style="display: inline-block">
-                        <h3>The McRawChicken burger 3</h3>
-                        <div><img src="public/img/McRawChicken.png" alt="Chicken" title="McRawChicken"></div>
-                        <dt>Allergies</dt>
-                        <dd>
-                            <ul>
-                                <li>Chicken 3</li>
-                                <li>Raw 3</li>
-                                <li>Burger 3</li>
-                            </ul>
-                        </dd>
-                    </div>
+            <section id="BurgerSection">
+                <h2>Select a burger</h2>
+                This is where you select a burger<br><br>
+                <div style="display: inline-block">
+                    <h3>The McRawChicken burger</h3>
+                    <img src="img/McRawChicken.png" alt="Chicken" title="McRawChicken" class="burgerImage">
+                    <ul class="allergies">
+                        <li>Chicken</li>
+                        <li>Raw</li>
+                        <li>Burger</li>
+                    </ul>
                 </div>
-
+                <div style="display: inline-block">
+                    <h3>The McRawChicken cheeseburger</h3>
+                    <img src="img/McRawChickenCheese.png" alt="Chicken" title="McRawChickenCheese" class="burgerImage">
+                    <ul class="allergies">
+                        <li>Chicken</li>
+                        <li>Raw</li>
+                        <li>Cheeseburger</li>
+                    </ul>
+                </div>
+                <div style="display: inline-block">
+                    <h3>The McRawNoChicken burger</h3>
+                    <img src="img/McRawChickenVego.png" alt="Chicken" title="McRawChickenVego" class="burgerImage">
+                    <ul class="allergies">
+                        <li>No chicken</li>
+                        <li>Still raw</li>
+                        <li>And burger</li>
+                    </ul>
+                </div>
             </section>      
 
-            <section id="Orderinfo">
+            <section id="OrderSection">
                 <h2>Order info for ordering the burger</h2>
                 <form>
                     <p>
@@ -116,7 +99,7 @@
         <hr>
         <footer>
             Subscribe to our Myspace please
-            &copy;Bibblanburgers
+            &copy;McRawChickenBurger 2025
         </footer>
    </body>
 </html>
