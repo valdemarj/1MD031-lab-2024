@@ -1,6 +1,6 @@
 <template>
   <header id="headerBlock">
-    <img src="../../../public/img/chickenheader.png" alt="Header" title="headerimage" id="headerImage"> </img>
+    <img src="/img/chickenheader.png" alt="Header" title="headerimage" id="headerImage"> </img>
     <h1>
     Welcome to McRawChickenBurger Online Website!
     </h1>
