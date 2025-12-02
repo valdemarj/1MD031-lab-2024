@@ -88,8 +88,6 @@ export default {
     return {
       nm: "",
       em: "",
-      st: "",
-      ho: "",
       payment: "",
       otherinfo: "",
       gender: "",
@@ -99,6 +97,9 @@ export default {
     }
   },
   methods: {
+    getOrderNumber: function () {
+      return Math.floor(Math.random()*100000);
+    },
     addToOrder(event) {
     this.orderedBurgers[event.name] = event.amount
     console.log("Updated order:", this.orderedBurgers)
@@ -108,9 +109,13 @@ export default {
       this.clicked = true;
     },
     addOrder: function (event) {
-      socket.emit("addOrder", { orderId: 1,
+      socket.emit("addOrder", { orderId: this.getOrderNumber(),
                                 details: this.location,
-                                orderItems: ["Beans", "Curry"]
+                                orderItems: this.orderedBurgers,
+                                customerName: this.nm,
+                                customerEmail: this.em,
+                                customerPayment: this.payment,
+                                customerGender: this.gender,
                               }
                  );
     }
