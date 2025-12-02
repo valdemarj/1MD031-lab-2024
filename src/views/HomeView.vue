@@ -11,7 +11,7 @@
           <h2>Select a burger</h2>
           This is where you select a burger<br><br>
           <div class="wrapper">
-            <Burger :burgerList="burgers"></Burger>
+            <Burger @orderedBurger="addToOrder"></Burger>
           </div>
           
       </section>      
@@ -100,7 +100,13 @@ export default {
       payment: "",
       otherinfo: "",
       gender: "",
-      orderedBurgers: ""
+      orderedBurgers: {}
+    }
+  },
+  methods: {
+    addToOrder(event) {
+    this.orderedBurgers[event.name] = event.amount
+    console.log("Updated order:", this.orderedBurgers)
     }
   }
 }
