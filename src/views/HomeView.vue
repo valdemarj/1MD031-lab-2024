@@ -28,14 +28,6 @@
                   <input type="email" id="email" v-model="em" required="required" placeholder="E-mail address">
               </p>
               <p>
-                  <label for="street">Street</label><br>
-                  <input type="text" id="street" v-model="st" required="required" placeholder="Streetname">
-              </p>
-              <p>
-                  <label for="house">House</label><br>
-                  <input type="text" id="house" v-model="ho" required="required" placeholder="House number">
-              </p>
-              <p>
                   <label for="payment">Payment method</label><br>
                   <select id="payment" v-model="payment">
                       <option selected="selected">Cash</option>
@@ -59,11 +51,18 @@
                   <label for="nogender">No thanks</label><br></br>
 
                   
-              </p>  
+              </p>
+              <div id="mapWrapper">
+                <div id="map" v-on:click="addOrder">
+                  <div v-if="clicked" id="dot" :style="{ left: location.x + 'px', top: location.y + 'px' }">
+                    T
+                  </div>
+                </div>
+              </div>
+              
           </form>
           <button @click="console.log(
           'Name:'+this.nm+' '+
-          +'Adress:'+this.st+' '+this.ho+' '+
           +'Payment'+this.payment+' '+
           +'Info'+this.otherinfo+' '+
           +'Gender:'+this.gender
@@ -71,6 +70,12 @@
           Send Info&#128020;
           </button>               
       </section>
+
+      
+      
+      
+    
+
   </main>
   <hr>
   <footer>
@@ -82,7 +87,6 @@
 <script>
 import Burger from '../components/Burger.vue'
 import io from 'socket.io-client'
-import { ref } from 'vue';
 
 const socket = io("localhost:3000");
 
@@ -100,7 +104,9 @@ export default {
       payment: "",
       otherinfo: "",
       gender: "",
-      orderedBurgers: {}
+      orderedBurgers: {},
+      location: { x:0,y:0},
+      clicked: false,
     }
   },
   methods: {
@@ -108,18 +114,13 @@ export default {
     this.orderedBurgers[event.name] = event.amount
     console.log("Updated order:", this.orderedBurgers)
     },
-    addOrder: function (event) {
-      var offset = {x: event.currentTarget.getBoundingClientRect().left,
-                    y: event.currentTarget.getBoundingClientRect().top};
-      socket.emit("addOrder", { orderId: this.getOrderNumber(),
-                                details: { x: event.clientX - 10 - offset.x,
-                                           y: event.clientY - 10 - offset.y },
-                                orderItems: ["Beans", "Curry"]
-                              }
-                 );
+    addOrder(event) {
+      this.location = { x: event.offsetX, y: event.offsetY }
+      this.clicked = true;
     }
   }
 }
+
 </script>
 
 <style>
@@ -188,5 +189,23 @@ section {
     padding: 10px;
     border: 8px double black;
     text-align: center;
+}
+
+#map {
+    width: 1920px;
+    height: 1078px;
+    background: url("/img/polacks.jpg");
+    cursor: crosshair;
+    position: relative
+  }
+
+#mapWrapper {
+  width: 1000px;
+  height: 1000px;
+  overflow: scroll;
+}
+
+#dot {
+  position: absolute;
 }
 </style>
