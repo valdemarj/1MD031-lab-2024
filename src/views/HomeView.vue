@@ -18,6 +18,22 @@ import io from 'socket.io-client'
 
 const socket = io("localhost:3000");
 
+
+function MenuItem(nm,ing,img) {
+  this.name = nm;
+  this.ingredients = ing;
+  this.imageUrl = img;
+};
+
+const rawChicken = new MenuItem("McRawChicken","chicken");
+const rawChickenCheese = new MenuItem("McRawChicken Cheese","Cheese");
+const rawChickenVego = new MenuItem("McRawNoChicken","No chicken");
+
+let burgerList = [rawChicken,rawChickenCheese,rawChickenVego]
+
+
+
+
 export default {
   name: 'HomeView',
   components: {
@@ -25,10 +41,7 @@ export default {
   },
   data: function () {
     return {
-      burgers: [ {name: "small burger", kCal: 250},
-                 {name: "standard burger", kCal: 450},
-                 {name: "large burger", kCal: 850}
-               ]
+      burgers: burgerList
     }
   },
   methods: {
