@@ -53,7 +53,7 @@
                   
               </p>
               <div id="mapWrapper">
-                <div id="map" v-on:click="addOrder">
+                <div id="map" v-on:click="setLocation">
                   <div v-if="clicked" id="dot" :style="{ left: location.x + 'px', top: location.y + 'px' }">
                     T
                   </div>
@@ -61,21 +61,10 @@
               </div>
               
           </form>
-          <button @click="console.log(
-          'Name:'+this.nm+' '+
-          +'Payment'+this.payment+' '+
-          +'Info'+this.otherinfo+' '+
-          +'Gender:'+this.gender
-          )">
+          <button @click=addOrder>
           Send Info&#128020;
           </button>               
       </section>
-
-      
-      
-      
-    
-
   </main>
   <hr>
   <footer>
@@ -114,9 +103,16 @@ export default {
     this.orderedBurgers[event.name] = event.amount
     console.log("Updated order:", this.orderedBurgers)
     },
-    addOrder(event) {
+    setLocation(event) {
       this.location = { x: event.offsetX, y: event.offsetY }
       this.clicked = true;
+    },
+    addOrder: function (event) {
+      socket.emit("addOrder", { orderId: 1,
+                                details: this.location,
+                                orderItems: ["Beans", "Curry"]
+                              }
+                 );
     }
   }
 }
@@ -207,5 +203,6 @@ section {
 
 #dot {
   position: absolute;
+  color: black;
 }
 </style>
