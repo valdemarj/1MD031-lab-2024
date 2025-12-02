@@ -20,7 +20,7 @@
           <h2>Order info for ordering the burger</h2>
           <form>
               <p>
-                  <label for="name">First</label><br>
+                  <label for="name">Name</label><br>
                   <input type="text" id="name" v-model="nm" required="required" placeholder="Firstname Lastname">
               </p>
               <p>
@@ -59,12 +59,16 @@
                   <label for="nogender">No thanks</label><br></br>
 
                   
-              </p>
+              </p>  
           </form>
-          <button type="submit">
-          <v-model v-on:click="console.log('hej')"></v-model>
-          &#128020;
-          Send Info
+          <button type="submit" @click="console.log(
+          'Name:'+this.nm+' '+
+          +'Adress:'+this.st+' '+this.ho+' '+
+          +'Payment'+this.payment+' '+
+          +'Info'+this.otherinfo+' '+
+          +'Gender:'+this.gender
+          )">
+          Send Info&#128020;
           </button>               
       </section>
   </main>
@@ -89,7 +93,16 @@ export default {
   },
   data() {
     return {
+      nm: "",
+      em: "",
+      st: "",
+      ho: "",
+      payment: "",
+      otherinfo: "",
       gender: ""
+
+
+
     }
   }
 }
