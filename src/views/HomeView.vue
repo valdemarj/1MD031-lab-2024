@@ -61,7 +61,7 @@
                   
               </p>  
           </form>
-          <button type="submit" @click="console.log(
+          <button @click="console.log(
           'Name:'+this.nm+' '+
           +'Adress:'+this.st+' '+this.ho+' '+
           +'Payment'+this.payment+' '+
@@ -99,10 +99,8 @@ export default {
       ho: "",
       payment: "",
       otherinfo: "",
-      gender: ""
-
-
-
+      gender: "",
+      orderedBurgers: ""
     }
   }
 }

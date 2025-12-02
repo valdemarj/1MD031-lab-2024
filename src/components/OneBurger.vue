@@ -7,16 +7,43 @@
         {{ ingredient }}
       </li>
     </ul>
+    <div>
+      <button @click="addBurger">+</button>        
+      {{ amountOrdered }}
+      <button @click="removeBurger">-</button>     
+    </div>
+    
   </div>
 </template>
 
 <script>
-export default {
-  name: 'OneBurger',
-  props: {
-    burger: Object
+  export default {
+    name: 'OneBurger',
+    props: {
+      burger: Object
+    },
+    data: function () {
+    return {
+      amountOrdered: 0,
+      }
+    },
+    methods: {
+      addBurger: function() {
+        this.amountOrdered += 1;
+        this.$emit('orderedBurger', { name:   this.burger.name, 
+                                    amount: this.amountOrdered 
+                                    }
+                  );
+        },
+      removeBurger: function() {
+          this.amountOrdered += -1;
+          this.$emit('orderedBurger', { name:   this.burger.name, 
+                                      amount: this.amountOrdered 
+                                      }
+          );
+        }
+    }
   }
-}
 
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
