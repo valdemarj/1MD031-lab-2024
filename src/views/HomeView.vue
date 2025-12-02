@@ -18,6 +18,22 @@ import io from 'socket.io-client'
 
 const socket = io("localhost:3000");
 
+//MenuItem
+function MenuItem(nm,ing,img) {
+  this.name = nm;
+  this.ingredients = ing;
+  this.imageUrl = img;
+}
+
+let menuItems = [
+  rawChicken = new MenuItem("McRawChicken","chicken"),
+  rawChickenCheese = new MenuItem("McRawChicken Cheese","Cheese"),
+  rawChickenVego = new MenuItem("McRawNoChicken","No chicken")
+]
+
+console.log(menuItems)
+
+
 export default {
   name: 'HomeView',
   components: {
