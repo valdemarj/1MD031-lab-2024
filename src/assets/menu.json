@@ -1,21 +1,16 @@
 [{
-    "name": "Veggie Bliss", 
-    "kCal": 500, 
-    "url": "https://images-bonnier.imgix.net/files/ifo/production/20220412084608/Kødfri-burger-1.jpg?auto=compress,format&w=1024%201024w",
-    "lactose": false, 
-    "gluten": false
+    "name": "McRawChicken", 
+    "Ingrediens": ["Chicken","Raw","Burger"],
+    "url": "/img/McRawChicken.png"
 },
 {
-    "name": "Veggie Bliss", 
-    "kCal": 500, 
-    "url": "https://images-bonnier.imgix.net/files/ifo/production/20220412084608/Kødfri-burger-1.jpg?auto=compress,format&w=1024%201024w",
-    "lactose": false, 
-    "gluten": false
+    "name": "McRawChicken Cheese", 
+    "Ingrediens": ["Chicken","Raw","Cheeseburger"],
+    "url": "/img/McRawChickenCheese.png"
 },
 {
-    "name": "Veggie Bliss", 
-    "kCal": 500, 
-    "url": "https://images-bonnier.imgix.net/files/ifo/production/20220412084608/Kødfri-burger-1.jpg?auto=compress,format&w=1024%201024w",
-    "lactose": false, 
-    "gluten": false
-}]
+    "name": "McRawNoChicken", 
+    "Ingrediens": ["No chicken","Still raw","And burger"],
+    "url": "/img/McRawChickenVego.png"
+}
+]
