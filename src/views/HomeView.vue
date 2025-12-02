@@ -107,6 +107,16 @@ export default {
     addToOrder(event) {
     this.orderedBurgers[event.name] = event.amount
     console.log("Updated order:", this.orderedBurgers)
+    },
+    addOrder: function (event) {
+      var offset = {x: event.currentTarget.getBoundingClientRect().left,
+                    y: event.currentTarget.getBoundingClientRect().top};
+      socket.emit("addOrder", { orderId: this.getOrderNumber(),
+                                details: { x: event.clientX - 10 - offset.x,
+                                           y: event.clientY - 10 - offset.y },
+                                orderItems: ["Beans", "Curry"]
+                              }
+                 );
     }
   }
 }
