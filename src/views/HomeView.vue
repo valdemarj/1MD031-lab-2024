@@ -1,122 +1,115 @@
 <template>
-<div>
-    <div>
-    <h1>Burgers</h1>
-    <Burger v-for="burger in burgers"
-            v-bind:burger="burger" 
-            v-bind:key="burger.name"/>
-    </div>
-</div>
+  <header id="headerBlock">
+              <img src="../../../public/img/chickenheader.png" alt="Header" title="headerimage" id="headerImage"> </img>
+              <h1>
+              Welcome to McRawChickenBurger Online Website!
+              </h1>
+          </header>
 
-<header id="headerBlock">
-            <img src="../../../public/img/chickenheader.png" alt="Header" title="headerimage" id="headerImage"> </img>
-            <h1>
-            Welcome to McRawChickenBurger Online Website!
-            </h1>
-        </header>
+          <main>
+              <section id="BurgerSection">
+                  <h2>Select a burger</h2>
+                  This is where you select a burger<br><br>
+                  <div class="wrapper">
+                    <Burger :burgerList="burgers"></Burger>
 
-        <main>
-            <section id="BurgerSection">
-                <h2>Select a burger</h2>
-                This is where you select a burger<br><br>
-                <div class="wrapper">
-                  <div v-for="aBurger in burgerList" :key="aBurger.name">
-                    <h3>{{ aBurger.name }}</h3>
-                    <img :src= aBurger.img>
-                    <ul>
-                      <li v-for="ingredient in aBurger.ingredients" :key="ingredient">
-                        {{ ingredient }}
-                      </li>
-                    </ul>
+                    <!--
+                    <div v-for="aBurger in burgerList" :key="aBurger.name">
+                      <h3>{{ aBurger.name }}</h3>
+                      <img :src= aBurger.img>
+                      <ul>
+                        <li v-for="ingredient in aBurger.ingredients" :key="ingredient">
+                          {{ ingredient }}
+                        </li>
+                      </ul>
+                    </div>
+                    
+                      <div class="Burger1">
+                          <h3>McRawChicken</h3>
+                          <img src="../../../public/img/McRawChicken.png" alt="Chicken" title="McRawChicken" class="burgerImage">
+                          <ul class="allergies">
+                              <li>Chicken</li>
+                              <li>Raw</li>
+                              <li>Burger</li>
+                          </ul>
+                      </div>
+                      <div class="Burger2">
+                          <h3>McRawChicken Cheese</h3>
+                          <img src="../../../public/img/McRawChickenCheese.png" alt="Chicken" title="McRawChickenCheese" class="burgerImage">
+                          <ul class="allergies">
+                              <li>Chicken</li>
+                              <li>Raw</li>
+                              <li>Cheeseburger</li>
+                          </ul>
+                      </div>
+                      <div class="Burger3">
+                          <h3>McRawNoChicken</h3>
+                          <img src="../../../public/img/McRawChickenVego.png" alt="Chicken" title="McRawChickenVego" class="burgerImage">
+                          <ul class="allergies">
+                              <li>No chicken</li>
+                              <li>Still raw</li>
+                              <li>And burger</li>
+                          </ul>
+                      </div>-->
                   </div>
-                  <Burger>
+                  
+              </section>      
 
-                  </Burger>
-                    <div class="Burger1">
-                        <h3>McRawChicken</h3>
-                        <img src="../../../public/img/McRawChicken.png" alt="Chicken" title="McRawChicken" class="burgerImage">
-                        <ul class="allergies">
-                            <li>Chicken</li>
-                            <li>Raw</li>
-                            <li>Burger</li>
-                        </ul>
-                    </div>
-                    <div class="Burger2">
-                        <h3>McRawChicken Cheese</h3>
-                        <img src="../../../public/img/McRawChickenCheese.png" alt="Chicken" title="McRawChickenCheese" class="burgerImage">
-                        <ul class="allergies">
-                            <li>Chicken</li>
-                            <li>Raw</li>
-                            <li>Cheeseburger</li>
-                        </ul>
-                    </div>
-                    <div class="Burger3">
-                        <h3>McRawNoChicken</h3>
-                        <img src="../../../public/img/McRawChickenVego.png" alt="Chicken" title="McRawChickenVego" class="burgerImage">
-                        <ul class="allergies">
-                            <li>No chicken</li>
-                            <li>Still raw</li>
-                            <li>And burger</li>
-                        </ul>
-                    </div>
-                </div>
-            </section>      
-
-            <section id="OrderSection">
-                <h2>Order info for ordering the burger</h2>
-                <form>
-                    <p>
-                        <label for="name">First</label><br>
-                        <input type="text" id="name" name="nm" required="required" placeholder="Firstname Lastname">
-                    </p>
-                    <p>
-                        <label for="email">Email</label><br>
-                        <input type="email" id="email" name="em" required="required" placeholder="E-mail address">
-                    </p>
-                    <p>
-                        <label for="street">Street</label><br>
-                        <input type="text" id="street" name="st" required="required" placeholder="Streetname">
-                    </p>
-                    <p>
-                        <label for="house">House</label><br>
-                        <input type="number" id="house" name="ho" required="required" placeholder="House number">
-                    </p>
-                    <p>
-                        <label for="payment">Payment method</label><br>
-                        <select id="payment" name="payment">
-                            <option selected="selected">Cash</option>
-                            <option>Bitcoin</option>
-                            <option>Blood</option>
-                            <option>Raw chicken</option>
-                            <option>American Express</option>
-                        </select>
-                    </p>
-                    <p>
-                        <label for="otherinfo">Anything else we should know about?</label><br>
-                        <textarea id="otherinfo" name="otherinfo" placeholder="No." cols="2" rows="5" maxlength="15"></textarea>
-                    </p>
-                    <p>
-                        Gender<br></br>
-                        <label for="male">Male</label>
-                        <label for="female">Female</label>
-                        <label for="nomale">No thanks</label> <br>
-                        <input type="radio" id="male" name="gender"></input>
-                        <input type="radio" id="female" name="gender"></input>
-                        <input type="radio" id="nomale" name="gender"></input>
-                    </p>
-                    <!--<input type="submit" value="Send">-->
-                </form>
-                <button type="submit">
-                <img src="../../../img/Baljeet.png" style="width: 15px;">
-                Send Info
-                </button>               
-            </section>
-        </main>
-        <hr>
-        <footer>
-            Subscribe to our Myspace please
-            &copy;McRawChickenBurger 2025
-        </footer>
+              <section id="OrderSection">
+                  <h2>Order info for ordering the burger</h2>
+                  <form>
+                      <p>
+                          <label for="name">First</label><br>
+                          <input type="text" id="name" name="nm" required="required" placeholder="Firstname Lastname">
+                      </p>
+                      <p>
+                          <label for="email">Email</label><br>
+                          <input type="email" id="email" name="em" required="required" placeholder="E-mail address">
+                      </p>
+                      <p>
+                          <label for="street">Street</label><br>
+                          <input type="text" id="street" name="st" required="required" placeholder="Streetname">
+                      </p>
+                      <p>
+                          <label for="house">House</label><br>
+                          <input type="number" id="house" name="ho" required="required" placeholder="House number">
+                      </p>
+                      <p>
+                          <label for="payment">Payment method</label><br>
+                          <select id="payment" name="payment">
+                              <option selected="selected">Cash</option>
+                              <option>Bitcoin</option>
+                              <option>Blood</option>
+                              <option>Raw chicken</option>
+                              <option>American Express</option>
+                          </select>
+                      </p>
+                      <p>
+                          <label for="otherinfo">Anything else we should know about?</label><br>
+                          <textarea id="otherinfo" name="otherinfo" placeholder="No." cols="2" rows="5" maxlength="15"></textarea>
+                      </p>
+                      <p>
+                          Gender<br></br>
+                          <label for="male">Male</label>
+                          <label for="female">Female</label>
+                          <label for="nomale">No thanks</label> <br>
+                          <input type="radio" id="male" name="gender"></input>
+                          <input type="radio" id="female" name="gender"></input>
+                          <input type="radio" id="nomale" name="gender"></input>
+                      </p>
+                      <!--<input type="submit" value="Send">-->
+                  </form>
+                  <button type="submit">
+                  <img src="../../../img/Baljeet.png" style="width: 15px;">
+                  Send Info
+                  </button>               
+              </section>
+          </main>
+          <hr>
+          <footer>
+              Subscribe to our Myspace please
+              &copy;McRawChickenBurger 2025
+          </footer>
 </template>
 
 <script>
@@ -124,20 +117,6 @@ import Burger from '../components/OneBurger.vue'
 import io from 'socket.io-client'
 
 const socket = io("localhost:3000");
-
-
-function MenuItem(nm,ingr,img) {
-  this.name = nm;
-  this.ingredients = ingr;
-  this.imageUrl = img;
-};
-
-const rawChicken = new MenuItem("McRawChicken",["Chicken","Raw","Burger"],"../../../public/img/McRawChicken.png");
-const rawChickenCheese = new MenuItem("McRawChicken Cheese",["Chicken","Raw","Cheeseburger"],"../../../public/img/McRawChickenCheese.png");
-const rawChickenVego = new MenuItem("McRawNoChicken",["No chicken","Still raw","And burger"],"../../../public/img/McRawChickenVego.png");
-
-let burgerList = [rawChicken,rawChickenCheese,rawChickenVego]
-
 
 export default {
   name: 'HomeView',

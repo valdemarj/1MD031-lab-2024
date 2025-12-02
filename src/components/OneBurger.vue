@@ -1,9 +1,11 @@
 <template>
   <div>
     <h3>{{burger.name}}</h3>
-    <img bind:src="burger.img" bind:alt={{burger.name}} title={{burger.name}}>
+    <img bind:src="burger.imgUrl" bind:alt=burger.name title=burger.name>
     <ul>
-      <li class="ingredients" v-for="ingredient in burger.ingredient"></li>>
+      <li v-for="ingredient in burger.ingredients" :key="ingredient">
+        {{ ingredient }}
+      </li>>
     </ul>
   </div>
 </template>
@@ -15,8 +17,8 @@ export default {
     burger: Object
   }
 }
-</script>
 
+</script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
