@@ -1,11 +1,11 @@
 <template>
   <div>
     <h3>{{burger.name}}</h3>
-    <img bind:src="burger.imgUrl" bind:alt=burger.name title=burger.name>
+    <img :src=burger.imageUrl alt=burger.name title=burger.name>
     <ul>
       <li v-for="ingredient in burger.ingredients" :key="ingredient">
         {{ ingredient }}
-      </li>>
+      </li>
     </ul>
   </div>
 </template>
