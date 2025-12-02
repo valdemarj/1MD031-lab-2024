@@ -6,9 +6,6 @@
             v-bind:burger="burger" 
             v-bind:key="burger.name"/>
     </div>
-    <div id="map" v-on:click="addOrder">
-    click here
-    </div>
 </div>
 
 <header id="headerBlock">
@@ -23,6 +20,18 @@
                 <h2>Select a burger</h2>
                 This is where you select a burger<br><br>
                 <div class="wrapper">
+                  <div v-for="aBurger in burgerList" :key="aBurger.name">
+                    <h3>{{ aBurger.name }}</h3>
+                    <img :src= aBurger.img>
+                    <ul>
+                      <li v-for="ingredient in aBurger.ingredients" :key="ingredient">
+                        {{ ingredient }}
+                      </li>
+                    </ul>
+                  </div>
+                  <Burger>
+
+                  </Burger>
                     <div class="Burger1">
                         <h3>McRawChicken</h3>
                         <img src="../../../public/img/McRawChicken.png" alt="Chicken" title="McRawChicken" class="burgerImage">
@@ -117,19 +126,17 @@ import io from 'socket.io-client'
 const socket = io("localhost:3000");
 
 
-function MenuItem(nm,ing,img) {
+function MenuItem(nm,ingr,img) {
   this.name = nm;
-  this.ingredients = ing;
+  this.ingredients = ingr;
   this.imageUrl = img;
 };
 
-const rawChicken = new MenuItem("McRawChicken","chicken");
-const rawChickenCheese = new MenuItem("McRawChicken Cheese","Cheese");
-const rawChickenVego = new MenuItem("McRawNoChicken","No chicken");
+const rawChicken = new MenuItem("McRawChicken",["Chicken","Raw","Burger"],"../../../public/img/McRawChicken.png");
+const rawChickenCheese = new MenuItem("McRawChicken Cheese",["Chicken","Raw","Cheeseburger"],"../../../public/img/McRawChickenCheese.png");
+const rawChickenVego = new MenuItem("McRawNoChicken",["No chicken","Still raw","And burger"],"../../../public/img/McRawChickenVego.png");
 
 let burgerList = [rawChicken,rawChickenCheese,rawChickenVego]
-
-
 
 
 export default {
@@ -137,36 +144,10 @@ export default {
   components: {
     Burger
   },
-  data: function () {
-    return {
-      burgers: burgerList
-    }
-  },
-  methods: {
-    getOrderNumber: function () {
-      return Math.floor(Math.random()*100000);
-    },
-    addOrder: function (event) {
-      var offset = {x: event.currentTarget.getBoundingClientRect().left,
-                    y: event.currentTarget.getBoundingClientRect().top};
-      socket.emit("addOrder", { orderId: this.getOrderNumber(),
-                                details: { x: event.clientX - 10 - offset.x,
-                                           y: event.clientY - 10 - offset.y },
-                                orderItems: ["Beans", "Curry"]
-                              }
-                 );
-    }
-  }
 }
 </script>
 
 <style>
-  #map {
-    width: 300px;
-    height: 300px;
-    background-color: red;
-  }
-
   @import 'https://fonts.googleapis.com/css?family=Pacifico|Dosis';
 
 #headerBlock {

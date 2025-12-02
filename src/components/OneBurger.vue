@@ -1,6 +1,10 @@
 <template>
   <div>
-    {{ burger.name }} {{ burger.kCal }}
+    <h3>{{burger.name}}</h3>
+    <img bind:src="burger.img" bind:alt={{burger.name}} title={{burger.name}}>
+    <ul>
+      <li class="ingredients" v-for="ingredient in burger.ingredient"></li>>
+    </ul>
   </div>
 </template>
 
