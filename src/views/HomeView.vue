@@ -21,23 +21,23 @@
           <form>
               <p>
                   <label for="name">First</label><br>
-                  <input type="text" id="name" name="nm" required="required" placeholder="Firstname Lastname">
+                  <input type="text" id="name" v-model="nm" required="required" placeholder="Firstname Lastname">
               </p>
               <p>
                   <label for="email">Email</label><br>
-                  <input type="email" id="email" name="em" required="required" placeholder="E-mail address">
+                  <input type="email" id="email" v-model="em" required="required" placeholder="E-mail address">
               </p>
               <p>
                   <label for="street">Street</label><br>
-                  <input type="text" id="street" name="st" required="required" placeholder="Streetname">
+                  <input type="text" id="street" v-model="st" required="required" placeholder="Streetname">
               </p>
               <p>
                   <label for="house">House</label><br>
-                  <input type="number" id="house" name="ho" required="required" placeholder="House number">
+                  <input type="text" id="house" v-model="ho" required="required" placeholder="House number">
               </p>
               <p>
                   <label for="payment">Payment method</label><br>
-                  <select id="payment" name="payment">
+                  <select id="payment" v-model="payment">
                       <option selected="selected">Cash</option>
                       <option>Bitcoin</option>
                       <option>Blood</option>
@@ -47,21 +47,23 @@
               </p>
               <p>
                   <label for="otherinfo">Anything else we should know about?</label><br>
-                  <textarea id="otherinfo" name="otherinfo" placeholder="No." cols="2" rows="5" maxlength="15"></textarea>
+                  <textarea id="otherinfo" v-model="otherinfo" placeholder="No." cols="2" rows="5" maxlength="15"></textarea>
               </p>
               <p>
                   Gender<br></br>
-                  <label for="male">Male</label>
-                  <label for="female">Female</label>
-                  <label for="nomale">No thanks</label> <br>
-                  <input type="radio" id="male" name="gender"></input>
-                  <input type="radio" id="female" name="gender"></input>
-                  <input type="radio" id="nomale" name="gender"></input>
+                  <input type="radio" id="male" v-model="gender" value="Male">
+                  <label for="male">Male</label><br></br>
+                  <input type="radio" id="female" v-model="gender" value="Female">
+                  <label for="female">Female</label><br></br>
+                  <input type="radio" id="nogender" v-model="gender" value="Nogender">
+                  <label for="nogender">No thanks</label><br></br>
+
+                  
               </p>
-              <!--<input type="submit" value="Send">-->
           </form>
           <button type="submit">
-          <img src="../../../img/Baljeet.png" style="width: 15px;">
+          <v-model v-on:click="console.log('hej')"></v-model>
+          &#128020;
           Send Info
           </button>               
       </section>
@@ -76,6 +78,7 @@
 <script>
 import Burger from '../components/Burger.vue'
 import io from 'socket.io-client'
+import { ref } from 'vue';
 
 const socket = io("localhost:3000");
 
@@ -86,23 +89,7 @@ export default {
   },
   data() {
     return {
-      /*burgers: [
-        {
-          name: "McRawChicken",
-          ingredients: ["Chicken", "Raw", "Burger"],
-          imageUrl: "/img/McRawChicken.png"
-        },
-        {
-          name: "McRawChicken Cheese",
-          ingredients: ["Chicken", "Raw", "Cheeseburger"],
-          imageUrl: "/img/McRawChickenCheese.png"
-        },
-        {
-          name: "McRawNoChicken",
-          ingredients: ["No chicken", "Still raw", "And burger"],
-          imageUrl: "/img/McRawChickenVego.png"
-        }
-      ]*/
+      gender: ""
     }
   }
 }
