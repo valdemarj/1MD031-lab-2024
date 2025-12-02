@@ -1,16 +1,16 @@
 [{
     "name": "McRawChicken", 
-    "Ingrediens": ["Chicken","Raw","Burger"],
-    "url": "/img/McRawChicken.png"
+    "ingredients": ["Chicken","Raw","Burger"],
+    "imageUrl": "/img/McRawChicken.png"
 },
 {
     "name": "McRawChicken Cheese", 
-    "Ingrediens": ["Chicken","Raw","Cheeseburger"],
-    "url": "/img/McRawChickenCheese.png"
+    "ingredients": ["Chicken","Raw","Cheeseburger"],
+    "imageUrl": "/img/McRawChickenCheese.png"
 },
 {
     "name": "McRawNoChicken", 
-    "Ingrediens": ["No chicken","Still raw","And burger"],
-    "url": "/img/McRawChickenVego.png"
+    "ingredients": ["No chicken","Still raw","And burger"],
+    "imageUrl": "/img/McRawChickenVego.png"
 }
 ]

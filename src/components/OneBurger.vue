@@ -1,7 +1,7 @@
 <template>
   <div>
     <h3>{{burger.name}}</h3>
-    <img :src=burger.imageUrl alt=burger.name title=burger.name>
+    <img :src=burger.imageUrl :alt=burger.name :title=burger.name>
     <ul>
       <li v-for="ingredient in burger.ingredients" :key="ingredient">
         {{ ingredient }}
